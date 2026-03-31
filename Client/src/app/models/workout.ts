@@ -6,9 +6,9 @@ export class Workout {
   date: Date = new Date();
   time: number = 0;
   calories: number = 0;
-  intensity: number = 0;
+  intensity?: number = 0;
 
-  constructor(id: number, name: string, type: string, sport: string, date: Date, time: number, calories: number, intensity: number) {
+  constructor(id: number, name: string, type: string, sport: string, date: Date, time: number, calories: number, intensity?: number) {
     this.id = id;
     this.name = name;
     this.type = type;
