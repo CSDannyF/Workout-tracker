@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Workout } from '../../models/workout';
 
 @Component({
   selector: 'app-workout-card',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './workout-card.html',
   styleUrl: './workout-card.css',
 })
-export class WorkoutCard {}
+export class WorkoutCard {
+  @Input()
+  workout!: Workout;
+  
+}
