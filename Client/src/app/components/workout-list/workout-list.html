@@ -1,6 +1,3 @@
 @for (workout of workouts; track workout.id) {
-  <h2>{{ workout.name }}</h2>
-  <h6>{{ workout.date }}</h6>
-  <h4>{{ workout.sport }}</h4>
-  <h4>{{ workout.time }} minuten</h4>
+  <app-workout-card [workout]="workout"></app-workout-card>
 }

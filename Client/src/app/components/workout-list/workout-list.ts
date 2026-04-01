@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutApi } from '../../services/workout-api';
 import { Workout } from '../../models/workout';
+import { WorkoutCard } from '../workout-card/workout-card';
 
 @Component({
   selector: 'app-workout-list',
-  imports: [],
+  imports: [WorkoutCard],
   templateUrl: './workout-list.html',
   styleUrl: './workout-list.css',
 })
