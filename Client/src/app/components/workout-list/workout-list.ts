@@ -20,4 +20,10 @@ export class WorkoutList implements OnInit {
     this.workouts = await this.workoutApi.getWorkouts();
     this.cdr.detectChanges();
   }
+
+  async removeChild(workoutToRemove: Workout) {
+    this.workouts = this.workouts.filter(w => w.id != workoutToRemove.id);
+    await this.workoutApi.deleteWorkout(workoutToRemove.id);
+    this.cdr.detectChanges();
+  }
 }
