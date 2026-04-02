@@ -5,5 +5,5 @@ import { WorkoutForm } from './components/workout-form/workout-form';
 export const routes: Routes = [
   { path: "workouts", component: WorkoutList },
   { path: "workouts/add", component: WorkoutForm },
-  { path: "", redirectTo: "workouts", pathMatch: "full" }
+  { path: "workouts", component: WorkoutList, runGuardsAndResolvers: "always" }
 ];

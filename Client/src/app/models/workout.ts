@@ -8,7 +8,7 @@ export class Workout {
   calories: number = 0;
   intensity?: number = 0;
 
-  constructor(id: number, name: string, type: string, sport: string, date: Date, time: number, calories: number, intensity?: number) {
+  constructor(id: number = 0, name: string, type: string, sport: string, date: Date, time: number, calories: number, intensity?: number) {
     this.id = id;
     this.name = name;
     this.type = type;

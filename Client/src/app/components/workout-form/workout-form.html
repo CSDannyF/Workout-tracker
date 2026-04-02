@@ -1,1 +1,40 @@
-<p>workout-form works!</p>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Workout name</label>
+    <input type="text" id="name" name="name" [(ngModel)]="workout.name">
+  </div>
+
+  <div>
+    <label for="type">Workout type</label>
+    <input type="text" id="type" name="type" [(ngModel)]="workout.type">
+  </div>
+
+  <div>
+    <label for="sport">Sport</label>
+    <input type="text" id="sport" name="sport" [(ngModel)]="workout.sport">
+  </div>
+
+  <div>
+    <label for="date">Date</label>
+    <input type="datetime-local" id="date" name="date" [(ngModel)]="workout.date">
+  </div>
+
+  <div>
+    <label for="time">Total time</label>
+    <input type="number" id="time" name="time" [(ngModel)]="workout.time">
+  </div>
+
+  <div>
+    <label for="calories">Total calories</label>
+    <input type="number" id="calories" name="calories" [(ngModel)]="workout.calories">
+  </div>
+
+  <div>
+    <label for="itensity">Intensity</label>
+    <input type="number" id="intensity" name="intensity" [(ngModel)]="workout.intensity">
+  </div>
+
+  <div>
+    <input type="submit" value="save">
+  </div>
+</form>
