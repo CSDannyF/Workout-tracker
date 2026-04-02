@@ -1,11 +1,10 @@
   <mat-card>
     <mat-card-header>
         <h2>{{ workout.name }}</h2>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
         <p>{{ workout.date | relativeDate }}</p>
-      </div>
+    </mat-card-header>
+
+    <mat-card-content>
       <div>
         <p>type: {{ workout.type }}</p>
         <p><strong>Sport: {{ workout.sport }}</strong></p>   
@@ -15,7 +14,7 @@
         <p>Calories: {{ workout.calories }}cal</p>
         <p>intensity: {{ workout.intensity }}</p>        
       </div>
-
     </mat-card-content>
+
   </mat-card>
 
