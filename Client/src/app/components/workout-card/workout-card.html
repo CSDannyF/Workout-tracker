@@ -1,7 +1,21 @@
-  <h2>{{ workout.name }}</h2>
-  <h6>{{ workout.date }}</h6>
-  <h4>{{ workout.sport }}</h4>
-  <h4>{{ workout.time }} minuten</h4>
-  <h4>{{ workout.calories }}</h4>
-  <h5>{{ workout.intensity }}</h5>
-  <h5>{{ workout.type }}</h5>
+  <mat-card>
+    <mat-card-header>
+        <h2>{{ workout.name }}</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <p>{{ workout.date | relativeDate }}</p>
+      </div>
+      <div>
+        <p>type: {{ workout.type }}</p>
+        <p><strong>Sport: {{ workout.sport }}</strong></p>   
+      </div>
+      <div>
+        <p><strong>Time: {{ workout.time }}m</strong></p>
+        <p>Calories: {{ workout.calories }}cal</p>
+        <p>intensity: {{ workout.intensity }}</p>        
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
