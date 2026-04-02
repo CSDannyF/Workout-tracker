@@ -2,7 +2,7 @@
     <mat-card-header>
       <div class="name-date-header">
         <h2>{{ workout.name }}</h2>
-        <p>{{ workout.date | relativeDate }}</p>
+        <p>{{ workout.date | relativeDate }} {{workout.startTime}}</p>
       </div>
       <button class="delete" (click)="remove()" matMiniFab color="warn">
         <mat-icon>delete</mat-icon>

@@ -1,40 +1,45 @@
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Workout name</label>
-    <input type="text" id="name" name="name" [(ngModel)]="workout.name">
-  </div>
+<form class="workout-form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Workout name</mat-label>
+    <input matInput type="text" name="name" [(ngModel)]="workout.name">
+  </mat-form-field>
 
-  <div>
-    <label for="type">Workout type</label>
-    <input type="text" id="type" name="type" [(ngModel)]="workout.type">
-  </div>
+  <mat-form-field>
+    <mat-label for="type">Workout type</mat-label>
+    <input matInput type="text" id="type" name="type" [(ngModel)]="workout.type">
+  </mat-form-field>
 
-  <div>
-    <label for="sport">Sport</label>
-    <input type="text" id="sport" name="sport" [(ngModel)]="workout.sport">
-  </div>
+  <mat-form-field>
+    <mat-label for="sport">Sport</mat-label>
+    <input matInput type="text" id="sport" name="sport" [(ngModel)]="workout.sport">
+  </mat-form-field>
 
-  <div>
-    <label for="date">Date</label>
-    <input type="datetime-local" id="date" name="date" [(ngModel)]="workout.date">
-  </div>
+<mat-form-field>
+  <mat-label>Date</mat-label>
+  <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="workout.date">
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
-  <div>
-    <label for="time">Total time</label>
-    <input type="number" id="time" name="time" [(ngModel)]="workout.time">
-  </div>
+  <mat-form-field>
+    <mat-label for="startTime">Start time</mat-label>
+    <input matInput type="time"  name="time" [(ngModel)]="workout.startTime">
+  </mat-form-field>
 
-  <div>
-    <label for="calories">Total calories</label>
-    <input type="number" id="calories" name="calories" [(ngModel)]="workout.calories">
-  </div>
+  <mat-form-field>
+    <mat-label for="time">Total time</mat-label>
+    <input matInput type="number" id="time" name="time" [(ngModel)]="workout.time">
+  </mat-form-field>
 
-  <div>
-    <label for="itensity">Intensity</label>
-    <input type="number" id="intensity" name="intensity" [(ngModel)]="workout.intensity">
-  </div>
+  <mat-form-field>
+    <mat-label for="calories">Total calories</mat-label>
+    <input matInput type="number" id="calories" name="calories" [(ngModel)]="workout.calories">
+  </mat-form-field>
 
-  <div>
-    <input type="submit" value="save">
-  </div>
+  <mat-form-field>
+    <mat-label for="itensity">Intensity</mat-label>
+    <input matInput type="number" id="intensity" name="intensity" [(ngModel)]="workout.intensity">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">save</button>
 </form>

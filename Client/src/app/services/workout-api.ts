@@ -22,6 +22,7 @@ export class WorkoutApi {
         workoutLiteral.type,
         workoutLiteral.sport,
         workoutLiteral.date,
+        workoutLiteral.startTime,
         workoutLiteral.time,
         workoutLiteral.calories,
         workoutLiteral.intensity
@@ -36,6 +37,7 @@ export class WorkoutApi {
       workoutLiteral.type,
       workoutLiteral.sport,
       workoutLiteral.date,
+      workoutLiteral.startTime,
       workoutLiteral.time,
       workoutLiteral.calories,
       workoutLiteral.intensity
