@@ -33,9 +33,6 @@ export class WorkoutForm {
       this.workout.intensity
     )
     await this.workoutApi.addWorkout(newWorkout)
-
-
-    //await this.router.navigate(['/']);
     this.router.navigate(['/workouts']);
   }
 }

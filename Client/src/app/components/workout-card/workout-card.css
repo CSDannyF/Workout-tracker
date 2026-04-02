@@ -4,8 +4,13 @@ mat-card {
 
 mat-card-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding-left: 20px;
+}
+
+.delete {
+  margin-top: 10px;
+  margin-left: auto;
 }
 
 mat-card-header h2 {
@@ -23,4 +28,9 @@ mat-card-content {
   justify-content: flex-start;
   padding-left: 20px;
   gap: 80px;
+}
+
+button[color="warn"] {
+  background-color: #cacaca;
+  color: rgb(192, 0, 0);
 }

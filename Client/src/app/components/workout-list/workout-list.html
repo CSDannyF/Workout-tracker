@@ -1,5 +1,5 @@
 <div class="workout-list">
   @for (workout of workouts; track workout.id) {
-    <app-workout-card [workout]="workout"></app-workout-card>
+    <app-workout-card [workout]="workout" (removed)="removeChild($event)"></app-workout-card>
   }
 </div>
