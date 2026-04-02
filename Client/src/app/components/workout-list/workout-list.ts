@@ -17,9 +17,7 @@ export class WorkoutList implements OnInit {
   constructor(private workoutApi: WorkoutApi, private cdr: ChangeDetectorRef) {}
   
   async ngOnInit(): Promise<void> {
-    console.log('ngOnInit aangeroepen');
     this.workouts = await this.workoutApi.getWorkouts();
     this.cdr.detectChanges();
-    console.log('workouts: ', this.workouts);
   }
 }
