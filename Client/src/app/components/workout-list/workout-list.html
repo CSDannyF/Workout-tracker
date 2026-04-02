@@ -1,3 +1,5 @@
+<p>Aantal workouts: {{ workouts.length }}</p>
+<p>Test: {{ workouts[0]?.name }}</p>
 @for (workout of workouts; track workout.id) {
   <app-workout-card [workout]="workout"></app-workout-card>
 }

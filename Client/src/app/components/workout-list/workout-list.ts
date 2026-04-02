@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+
 import { WorkoutApi } from '../../services/workout-api';
 import { Workout } from '../../models/workout';
 import { WorkoutCard } from '../workout-card/workout-card';
@@ -13,9 +14,12 @@ export class WorkoutList implements OnInit {
 
   workouts: Workout[] = [];
 
-  constructor(private workoutApi: WorkoutApi) {}
+  constructor(private workoutApi: WorkoutApi, private cdr: ChangeDetectorRef) {}
   
   async ngOnInit(): Promise<void> {
+    console.log('ngOnInit aangeroepen');
     this.workouts = await this.workoutApi.getWorkouts();
+    this.cdr.detectChanges();
+    console.log('workouts: ', this.workouts);
   }
 }
