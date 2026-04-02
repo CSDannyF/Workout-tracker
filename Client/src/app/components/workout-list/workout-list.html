@@ -1,4 +1,5 @@
-<p>Aantal workouts: {{ workouts.length }}</p>
-@for (workout of workouts; track workout.id) {
-  <app-workout-card [workout]="workout"></app-workout-card>
-}
+<div class="workout-list">
+  @for (workout of workouts; track workout.id) {
+    <app-workout-card [workout]="workout"></app-workout-card>
+  }
+</div>
