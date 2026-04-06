@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT ? process.env.PORT : 3000;
 
 const workoutsPath = "workouts.json";
-const sportsPath = "workoutTypes.json";
+const sportsPath = "sport.json";
 
 // Middleware
 app.use(cors());
@@ -82,12 +82,12 @@ app.delete('/my-workouts/:id', async (req, res) => {
 
 // Endpoints Sport
 // GET sport
-app.get('/sport', async (req, res) => {
+app.get('/sports', async (req, res) => {
   res.json(await readJsonData(sportsPath));
 });
 
 //POST sport
-app.post('/sport', async (req, res) => {
+app.post('/sports', async (req, res) => {
   const newSport = req.body;
   let sports = await readJsonData(sportsPath);
   let highestId = Math.max(...sports.map(s => s.id));
