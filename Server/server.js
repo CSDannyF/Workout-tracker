@@ -126,12 +126,12 @@ app.get('/user', async (req, res) => {
 });
 
 //Put user
-app.put('/user/:id', async (req, res) => {
+app.put('/user', async (req, res) => {
   const updatedUser = req.body;
   const user = await readJsonData(userJsonPath);
-  const index = user.findIndex(u => u.id == req.params.id);
+  const index = 0;
 
-  if (index == -1) {
+  if (user == []) {
     updatedUser.id = 1;
     user.push(updatedUser)
   } else {
