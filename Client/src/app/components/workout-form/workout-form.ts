@@ -9,7 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 
-import { WorkoutApi } from '../../services/workout-api';
+import { WorkoutService } from '../../services/workout-service';
 import { MatAnchor } from "@angular/material/button";
 
 @Component({
@@ -26,7 +26,7 @@ export class WorkoutForm {
   @Output()
   addWorkout: EventEmitter<Workout> = new EventEmitter<Workout>;
 
-  constructor(private workoutApi: WorkoutApi, private router: Router) {}
+  constructor(private workoutService: WorkoutService, private router: Router) {}
 
   async onSubmit() {
     let newWorkout = new Workout(
@@ -40,7 +40,7 @@ export class WorkoutForm {
       this.workout.calories?? 0,
       this.workout.intensity
     )
-    await this.workoutApi.addWorkout(newWorkout)
+    await this.workoutService.addWorkout(newWorkout)
     this.router.navigate(['/workouts']);
   }
 }

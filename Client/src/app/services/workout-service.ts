@@ -7,7 +7,7 @@ import { Workout } from '../models/workout';
 @Injectable({
   providedIn: 'root',
 })
-export class WorkoutApi {
+export class WorkoutService {
 
   private url = 'http://localhost:3000';
 
