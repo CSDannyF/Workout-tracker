@@ -31,7 +31,8 @@ export class WorkoutService {
   } 
 
   addWorkout$(newWorkout: Workout): Observable<Workout> {
-    return this.http.post<Workout>(`${this.url}/my-workouts`, newWorkout).pipe(map(workoutLiteral => new Workout(
+    return this.http.post<Workout>(`${this.url}/my-workouts`, newWorkout)
+    .pipe(map(workoutLiteral => new Workout(
       workoutLiteral.id,
       workoutLiteral.name,
       workoutLiteral.type,
@@ -45,7 +46,7 @@ export class WorkoutService {
   }
 
   deleteWorkout$(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.url}/my-workouts/${id}`)
+    return this.http.delete<void>(`${this.url}/my-workouts/${id}`);
   }
 
   
