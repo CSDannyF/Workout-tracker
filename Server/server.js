@@ -8,8 +8,9 @@ import __dirname from './__dirname.js';
 const app = express();
 const port = process.env.PORT ? process.env.PORT : 3000;
 
-const workoutsPath = "workouts.json";
-const sportsPath = "sport.json";
+const workoutsJsonPath = "workouts.json";
+const sportsJsonPath = "sport.json";
+const userJsonPath = "user.json"
 
 // Middleware
 app.use(cors());
@@ -43,13 +44,13 @@ async function writeJsonData(path, workoutData) {
 // Endpoints Workouts
 // GET workouts
 app.get('/my-workouts', async (req, res) => {
-  res.json(await readJsonData(workoutsPath));
+  res.json(await readJsonData(workoutsJsonPath));
 });
 
 // POST workouts
 app.post('/my-workouts', async (req, res) => {
   const newworkout = req.body;
-  let workouts = await readJsonData(workoutsPath);
+  let workouts = await readJsonData(workoutsJsonPath);
   let highestId = Math.max(...workouts.map(w => w.id));
 
   if (highestId == -Infinity) {
@@ -59,13 +60,13 @@ app.post('/my-workouts', async (req, res) => {
   }
 
   workouts.push(newworkout);
-  await writeJsonData(workoutsPath, workouts);
+  await writeJsonData(workoutsJsonPath, workouts);
   res.status(201).json(newworkout);
 });
 
 // DELETE workout
 app.delete('/my-workouts/:id', async (req, res) => {
-  const workouts = await readJsonData(workoutsPath);
+  const workouts = await readJsonData(workoutsJsonPath);
   const index = workouts.findIndex(w => w.id == req.params.id);
 
   if (index == -1) {
@@ -75,7 +76,7 @@ app.delete('/my-workouts/:id', async (req, res) => {
 
   workouts.splice(index, 1);
 
-  await writeJsonData(workoutsPath, workouts);
+  await writeJsonData(workoutsJsonPath, workouts);
   res.status(200).end();
 });
 
@@ -83,13 +84,13 @@ app.delete('/my-workouts/:id', async (req, res) => {
 // Endpoints Sport
 // GET sport
 app.get('/sports', async (req, res) => {
-  res.json(await readJsonData(sportsPath));
+  res.json(await readJsonData(sportsJsonPath));
 });
 
 //POST sport
 app.post('/sports', async (req, res) => {
   const newSport = req.body;
-  let sports = await readJsonData(sportsPath);
+  const sports = await readJsonData(sportsJsonPath);
   let highestId = Math.max(...sports.map(s => s.id));
 
   if (highestId == -Infinity) {
@@ -99,13 +100,13 @@ app.post('/sports', async (req, res) => {
   }
 
   sports.push(newSport);
-  await writeJsonData(sportsPath, sports);
+  await writeJsonData(sportsJsonPath, sports);
   res.status(201).json(newSport);
 });
 
 //DELETE
 app.delete('/sports/:id', async (req, res) => {
-  const sports = await readJsonData(sportsPath);
+  const sports = await readJsonData(sportsJsonPath);
   const index = sports.findIndex(s => s.id == req.params.id);
 
   if (index == -1) {
@@ -114,9 +115,31 @@ app.delete('/sports/:id', async (req, res) => {
   }
 
   sports.splice(index, 1);
-
-  await writeJsonData(sportsPath, sports);
+  await writeJsonData(sportsJsonPath, sports);
   res.status(200).end();
+});
+
+//Endpoints User
+// Get user
+app.get('/user', async (req, res) => {
+  res.json(await readJsonData(userJsonPath));
+});
+
+//Put user
+app.put('/user/:id', async (req, res) => {
+  const updatedUser = req.body;
+  const user = await readJsonData(userJsonPath);
+  const index = user.findIndex(u => u.id == req.params.id);
+
+  if (index == -1) {
+    updatedUser.id = 1;
+    user.push(updatedUser)
+  } else {
+    user[index] = updatedUser;
+  }
+
+  await writeJsonData(userJsonPath, user);
+  res.status(201).json(updatedUser);
 });
 
 app.listen(port, () => {
