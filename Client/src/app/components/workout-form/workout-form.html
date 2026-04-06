@@ -11,7 +11,11 @@
 
   <mat-form-field>
     <mat-label for="sport">Sport</mat-label>
-    <input matInput type="text" id="sport" name="sport" [(ngModel)]="workout.sport">
+    <mat-select name="sport" [(ngModel)]="workout.sport">
+      @for (sport of sports; track sport.id) {
+        <mat-option [value]="sport.name">{{ sport.name }}</mat-option>
+      }
+    </mat-select>
   </mat-form-field>
 
 <mat-form-field>
