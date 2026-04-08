@@ -1,0 +1,68 @@
+  @if (isEditing) {
+<form class="edit-user-form" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field>
+      <mat-label>User name</mat-label>
+      <input matInput type="text" name="name" [(ngModel)]="user.name">
+    </mat-form-field>
+    <button class="edit" type="submit" matMiniFab color="warn">
+      <mat-icon>save</mat-icon>
+    </button>
+</div>
+  
+  <mat-form-field>
+    <mat-label for="type">Email</mat-label>
+    <input matInput type="email" id="type" name="type" [(ngModel)]="user.email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="gender">Gender</mat-label>
+    <mat-select name="gender" [(ngModel)]="user.gender">
+      <mat-option value="M">Men</mat-option>
+      <mat-option value="W">Woman</mat-option>
+      <mat-option value="X">Other</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<mat-form-field>
+  <mat-label>Birthdate</mat-label>
+  <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="user.birthdate">
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="weight">Weight</mat-label>
+    <input matInput type="number"  name="weight" [(ngModel)]="user.weight">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="height">Height</mat-label>
+    <input matInput type="number" id="height" name="height" [(ngModel)]="user.height">
+  </mat-form-field>
+
+
+  </form>
+  } @else {
+  <mat-card>
+    <mat-card-header>
+      <div class="name-date-header">
+        <h2>User: {{ user.name }}</h2>
+        <p>Email: {{ user.email }}</p>
+      </div>
+      <button class="edit" (click)="edit()" matMiniFab color="warn">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <p>Birthdate: {{ user.birthdate }}</p>
+        <p>Gender: {{ user.gender }}</p>   
+      </div>
+      <div>
+        <p>Weight: {{ user.weight }}kg</p>
+        <p>Height: {{ user.height }}cm</p>        
+      </div>
+      </mat-card-content>
+    </mat-card>
+    }

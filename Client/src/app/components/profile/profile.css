@@ -1,0 +1,27 @@
+mat-card {
+  width: 400px;  
+  margin: auto;
+}
+
+mat-card-header {
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+
+.edit {
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.edit-user-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 24px auto;
+  gap: 8px;
+}
+
+.edit-user-form .edit {
+  margin-left: 20px;
+}
