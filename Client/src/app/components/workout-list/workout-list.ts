@@ -47,6 +47,7 @@ export class WorkoutList implements OnInit {
     this.cdr.detectChanges();
   }
 
+  // nog implementeren
   applyfilter() {
     
   }
