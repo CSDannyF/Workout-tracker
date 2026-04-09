@@ -20,3 +20,4 @@ describe('WorkoutCard', () => {
     expect(component).toBeTruthy();
   });
 });
+
