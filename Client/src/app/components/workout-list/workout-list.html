@@ -1,5 +1,20 @@
-<div class="workout-list">
-  @for (workout of workouts; track workout.id) {
-    <app-workout-card [workout]="workout" (removed)="removeChild($event)"></app-workout-card>
-  }
+<div class="filter-and-workouts">
+  <div class="filters">
+    <mat-card>
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" name="date" [(ngModel)]="workout.date">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      
+    </mat-card>
+  </div>
+
+  <div class="workout-list">
+    @for (workout of filteredWorkouts; track workout.id) {
+      <app-workout-card [workout]="workout" (removed)="removeChild($event)"></app-workout-card>
+    }
+  </div>
 </div>
